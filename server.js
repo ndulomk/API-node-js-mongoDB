@@ -16,6 +16,8 @@ app.use(express.json())
 app.use(morgan('dev'))
 connectDB()
 
+
+
 app.use("/api/task", taskRoutes)
 app.use("/api/auth", authRoutes)
 app.use("/api/users", userRoutes)
