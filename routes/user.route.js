@@ -15,7 +15,7 @@ router.put("/:id", protect, async(req, res)=>{
   }
 })
 
-router.delete("/:id", async(req, res)=>{
+router.delete("/:id",protect ,async(req, res)=>{
   try {
     const post = await User.findByIdAndDelete(req.params.id)
     if(!post) return res.status(404).json({message: "User not found"})
@@ -27,7 +27,7 @@ router.delete("/:id", async(req, res)=>{
 })
 
 
-router.get("/" ,async (req, res) => {
+router.get("/" , protect,async (req, res) => {
   try {
     const users = await User.find()
     
